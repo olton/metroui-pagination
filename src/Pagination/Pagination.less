@@ -20,7 +20,7 @@
     padding: 0;
     user-select: none;
     justify-content: start;
-    font-size: 14px;
+    font-size: 16px;
 
     &.pos-left, &.pos-default {
         justify-content: start;
@@ -47,7 +47,7 @@
         background-color: #ffffff;
         color: var(--textColor);
         border: 1px solid var(--defaultColor);
-        margin: .25rem;
+        margin: 4px;
         transition: all .15s ease-in-out;
         overflow: hidden;
     }
@@ -131,17 +131,74 @@
 }
 
 .pagination {
-    &.size-large {
+    &.large-size {
+        .page-item {
+            margin: 6px
+        }
         .page-link {
-            padding: .75rem 1.5rem;
-            font-size: 1.25rem;
+            font-size: 20px;
         }
     }
 
-    &.size-small {
+    &.small-size {
+        .page-item {
+            margin: 2px
+        }
         .page-link {
-            padding: .25rem .5rem;
-            font-size: .875rem;
+            font-size: 12px;
+        }
+    }
+}
+
+.pagination {
+    &.primary-variant {
+        .page-item:not(.no-link) {
+            border-color: var(--primaryColor);
+            color: var(--primaryColor);
+            &:hover, &.active {
+                color: var(--textInvertColor);
+                background-color: var(--primaryColor);
+            }
+        }
+    }
+    &.secondary-variant {
+        .page-item:not(.no-link) {
+            border-color: var(--secondaryColor);
+            color: var(--secondaryColor);
+            &:hover, &.active {
+                color: var(--textInvertColor);
+                background-color: var(--secondaryColor);
+            }
+        }
+    }
+    &.success-variant {
+        .page-item:not(.no-link) {
+            border-color: var(--successColor);
+            color: var(--successColor);
+            &:hover, &.active {
+                color: var(--textInvertColor);
+                background-color: var(--successColor);
+            }
+        }
+    }
+    &.danger-variant {
+        .page-item:not(.no-link) {
+            border-color: var(--dangerColor);
+            color: var(--dangerColor);
+            &:hover, &.active {
+                color: var(--textInvertColor);
+                background-color: var(--dangerColor);
+            }
+        }
+    }
+    &.warning-variant {
+        .page-item:not(.no-link) {
+            border-color: var(--warningColor);
+            color: var(--warningColor);
+            &:hover, &.active {
+                color: var(--textInvertColor);
+                background-color: var(--warningColor);
+            }
         }
     }
 }

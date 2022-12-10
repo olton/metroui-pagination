@@ -5,12 +5,26 @@ import classNames from "classnames";
 import Page from "./Page";
 import page from "./Page";
 
+export enum PAGINATION_VARIANT {
+    DEFAULT = "default-variant",
+    PRIMARY = "primary-variant",
+    SECONDARY = "secondary-variant",
+    DANGER = "danger-variant",
+    WARNING = "warning-variant",
+    SUCCESS = "success-variant",
+}
 export enum PAGINATION_POSITION {
     LEFT = 'pos-left',
     RIGHT = 'pos-right',
     CENTER = 'pos-center',
     DEFAULT = 'pos-default',
 
+}
+
+export enum PAGINATION_SIZE {
+    SMALL = 'small-size',
+    DEFAULT = 'default-size',
+    LARGE = 'large-size',
 }
 
 interface IPaginationProps {
@@ -25,6 +39,8 @@ interface IPaginationProps {
     rounded: boolean,
     gap: boolean,
     position: PAGINATION_POSITION,
+    size: PAGINATION_SIZE,
+    variant: PAGINATION_VARIANT,
     onClick: MouseEventHandler
 }
 
@@ -39,6 +55,8 @@ const Pagination: FC<IPaginationProps> = ({
     rounded= false,
     gap= true,
     position = PAGINATION_POSITION.DEFAULT,
+    size = PAGINATION_SIZE.DEFAULT,
+    variant = PAGINATION_VARIANT.DEFAULT,
     onClick,
     ...props
 }) => {
@@ -47,6 +65,8 @@ const Pagination: FC<IPaginationProps> = ({
         rounded ? 'rounded-buttons' : '',
         position,
         !gap ? 'no-gap' : '',
+        size,
+        variant
     )
 
     const handleClick: MouseEventHandler<HTMLElement> = (e) => {
