@@ -42,7 +42,10 @@ const App = () => {
                 <br/>
                 <br/>
                 <h2>No gap</h2>
-                <Pagination gap={false} position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={10}/>
+                <Pagination size={PAGINATION_SIZE.SMALL} gap={false} position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={10}/>
+                <Pagination size={PAGINATION_SIZE.DEFAULT} gap={false} position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={10}/>
+                <Pagination size={PAGINATION_SIZE.LARGE} gap={false} position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={10}/>
+                <Pagination rounded size={PAGINATION_SIZE.LARGE} gap={false} position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={10}/>
                 <br/>
                 <br/>
                 <br/>
