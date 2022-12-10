@@ -1,17 +1,18 @@
-import React, {FC} from "react";
+import React, {FC, MouseEventHandler} from "react";
 import classNames from "classnames";
 
 interface IPageProps {
     title: number | string,
     value: number | string,
     isService?: boolean,
-    extra?: string
+    extra?: string,
+    onClick?: MouseEventHandler
 }
 const Page: FC<IPageProps> = ({
     value,
     title,
-    isService = false,
-    extra = ''
+    extra = '',
+    onClick
 }) => {
     const classes = classNames(
         'page-item',
@@ -19,7 +20,7 @@ const Page: FC<IPageProps> = ({
         extra
     )
     return (
-        <li className={classes}>
+        <li className={classes} onClick={onClick}>
             <a className="page-link" data-value={value}>{title}</a>
         </li>
     )

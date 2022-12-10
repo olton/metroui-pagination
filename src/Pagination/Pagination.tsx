@@ -3,7 +3,6 @@ import React, {cloneElement, FC, MouseEventHandler} from "react"
 import "./Pagination.less"
 import classNames from "classnames";
 import Page from "./Page";
-import page from "./Page";
 
 export enum PAGINATION_VARIANT {
     DEFAULT = "default-variant",
@@ -38,6 +37,7 @@ interface IPaginationProps {
     nextTitle: string,
     rounded: boolean,
     gap: boolean,
+    shadow: boolean,
     position: PAGINATION_POSITION,
     size: PAGINATION_SIZE,
     variant: PAGINATION_VARIANT,
@@ -54,6 +54,7 @@ const Pagination: FC<IPaginationProps> = ({
     nextTitle = "Next",
     rounded= false,
     gap= true,
+    shadow= false,
     position = PAGINATION_POSITION.DEFAULT,
     size = PAGINATION_SIZE.DEFAULT,
     variant = PAGINATION_VARIANT.DEFAULT,
@@ -66,13 +67,14 @@ const Pagination: FC<IPaginationProps> = ({
         position,
         !gap ? 'no-gap' : '',
         size,
-        variant
+        variant,
+        shadow ? 'shadowed' : '',
     )
 
     const handleClick: MouseEventHandler<HTMLElement> = (e) => {
-        // const val = e.target.getAttribute("data-value");
-        console.log(e)
-        onClick && onClick(e)
+        // @ts-ignore
+        const val = e.target.getAttribute("data-value");
+        onClick && onClick(val)
     }
 
     const pagesCount = itemsPerPage === -1 ? 1 : Math.ceil(total / itemsPerPage)

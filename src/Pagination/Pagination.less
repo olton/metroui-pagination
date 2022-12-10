@@ -94,6 +94,7 @@
     .page-item.active {
         opacity: .9;
         background-color: var(--defaultColor);
+        pointer-events: none;
     }
 
     &.rounded-buttons {
@@ -200,5 +201,12 @@
                 background-color: var(--warningColor);
             }
         }
+    }
+}
+
+.pagination.shadowed:not(.disabled) .page-item:not(.no-link){
+    box-shadow: 0 1px 3px var(--shadowColor);
+    &:active {
+        box-shadow: none;
     }
 }

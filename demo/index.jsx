@@ -26,6 +26,11 @@ const App = () => {
                 <br/>
                 <br/>
                 <br/>
+                <h2>Shadow</h2>
+                <Pagination onClick={(val)=>alert(val)} shadow position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={10}/>
+                <br/>
+                <br/>
+                <br/>
                 <h2>Position</h2>
                 <Pagination position={PAGINATION_POSITION.LEFT} total={200} itemsPerPage={10} distance={3} current={7}/>
                 <Pagination position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={7}/>
