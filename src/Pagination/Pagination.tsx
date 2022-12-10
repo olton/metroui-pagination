@@ -106,9 +106,9 @@ const Pagination: FC<IPaginationProps> = ({
             }
             addItems(pagesCount - distance + 1, pagesCount - 1, current)
         } else {
-            addNoLink()
+            if (current > distance) addNoLink()
             addItems(current - Math.floor(distance/2), current + Math.floor(distance/2), current)
-            addNoLink()
+            if (pagesCount - current + 1 > distance) addNoLink()
         }
     }
 

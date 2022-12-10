@@ -1,10 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import { createRoot } from 'react-dom/client';
 import {Pagination, PAGINATION_POSITION, PAGINATION_SIZE, PAGINATION_VARIANT} from "../src/index"
 
 import "./index.less"
 
 const App = () => {
+    const [currentPage, setCurrentPage] = useState(3)
+    const handleClick = (val) => {
+        if (val === "next") {
+            if (currentPage < 20) {
+                setCurrentPage(currentPage+1)
+            }
+        } else if (val === "prev") {
+            if (currentPage > 1) {
+                setCurrentPage(currentPage-1)
+            }
+        } else {
+            setCurrentPage(+val)
+        }
+    }
+
     return (
         <>
             <div className="button-container" style={{flexFlow: "column"}}>
@@ -21,13 +36,18 @@ const App = () => {
                 <br/>
                 <br/>
                 <br/>
+                <h2>onClick</h2>
+                <Pagination onClick={(val)=>handleClick(val)}  position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={currentPage}/>
+                <br/>
+                <br/>
+                <br/>
                 <h2>No gap</h2>
                 <Pagination gap={false} position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={10}/>
                 <br/>
                 <br/>
                 <br/>
                 <h2>Shadow</h2>
-                <Pagination onClick={(val)=>alert(val)} shadow position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={10}/>
+                <Pagination shadow position={PAGINATION_POSITION.CENTER} total={200} itemsPerPage={10} distance={3} current={10}/>
                 <br/>
                 <br/>
                 <br/>
