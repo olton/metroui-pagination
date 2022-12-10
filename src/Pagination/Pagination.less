@@ -1,0 +1,147 @@
+:root {
+    --textColor: #000;
+    --textInvertColor: #fff;
+    --defaultColor: #ebebeb;
+    --dangerColor: #de0a0a;
+    --warningColor: #ffaa35;
+    --successColor: #61bd17;
+    --primaryColor: #3c8aff;
+    --secondaryColor: rgb(11, 152, 220);
+    --disableColor: #ececec;
+    --shadowColor: rgba(0, 0, 0, 0.4);
+
+    --border-radius: 10px;
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    justify-content: start;
+    font-size: 14px;
+
+    &.pos-left, &.pos-default {
+        justify-content: start;
+    }
+    &.pos-center {
+        justify-content: center;
+    }
+    &.pos-right {
+        justify-content: end;
+    }
+}
+
+.pagination {
+    ul {
+        display: flex;
+        flex-flow: row nowrap;
+        list-style: none inside;
+        margin: 0;
+        padding: 0;
+    }
+    .page-item {
+        cursor: pointer;
+        display: list-item;
+        background-color: #ffffff;
+        color: var(--textColor);
+        border: 1px solid var(--defaultColor);
+        margin: .25rem;
+        transition: all .15s ease-in-out;
+        overflow: hidden;
+    }
+
+    .page-link {
+        display: block;
+        position: relative;
+        padding: .5rem .75rem;
+        line-height: 1;
+        text-decoration: none;
+        color: inherit;
+        background-color: inherit;
+    }
+
+    .page-item, .page-item.service {
+        opacity: .8;
+    }
+
+    .page-item, .page-item.service {
+        &:hover {
+            opacity: 1;
+            background-color: var(--defaultColor);
+        }
+    }
+
+    .page-item.no-link {
+        pointer-events: none;
+        cursor: default;
+        border-color: transparent;
+        background-color: transparent;
+        &:hover {
+            background-color: #ffffff!important;
+            border-color: transparent;
+            color: var(--textColor);
+        }
+    }
+
+    .page-item.disabled {
+        pointer-events: none;
+        background-color: var(--disableColor);
+        color: var(--textInvertColor);
+    }
+
+    .page-item.active {
+        opacity: .9;
+        background-color: var(--defaultColor);
+    }
+
+    &.rounded-buttons {
+        .page-item {
+            border-radius: var(--border-radius);
+        }
+    }
+}
+
+.pagination {
+    &.no-gap {
+        margin: 0 0 1rem 0;
+        .page-item {
+            margin: -1px;
+        }
+        .no-link {
+            margin:  -1px 1px;
+        }
+
+        &.rounded {
+            .page-item {
+                border-radius: 0;
+            }
+
+            .page-item:first-child {
+                border-top-left-radius: var(--border-radius);
+                border-bottom-left-radius: var(--border-radius);
+            }
+            .page-item:last-child {
+                border-top-right-radius: var(--border-radius);
+                border-bottom-right-radius: var(--border-radius);
+            }
+        }
+    }
+}
+
+.pagination {
+    &.size-large {
+        .page-link {
+            padding: .75rem 1.5rem;
+            font-size: 1.25rem;
+        }
+    }
+
+    &.size-small {
+        .page-link {
+            padding: .25rem .5rem;
+            font-size: .875rem;
+        }
+    }
+}
